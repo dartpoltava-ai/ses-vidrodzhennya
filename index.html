@@ -7,7 +7,7 @@
     <meta name="description" content="Офіційний сайт ТОВ «СЕС ВІДРОДЖЕННЯ». Виробництво електроенергії з відновлюваних джерел, експлуатація сонячної електростанції потужністю 121,9 кВт.">
     <style>
         :root {
-            --primary-color: #1e88e5; /* Синій (небо/технології) */
+            --primary-color: #1e88e5; /* Синій (небо) */
             --secondary-color: #fdd835; /* Жовтий (сонце) */
             --dark-bg: #121212;
             --text-dark: #333333;
@@ -32,8 +32,12 @@
             position: relative;
             height: 60vh;
             min-height: 400px;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('https://images.unsplash.com/photo-1509391366360-1e97d5261688?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            /* Надійний спосіб задати фон + резервний колір */
+            background-color: #2c3e50; 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -71,6 +75,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-bottom: 30px;
         }
 
         .card {
@@ -79,15 +84,13 @@
             padding: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border-top: 4px solid var(--primary-color);
+            height: 100%;
         }
 
         .card h2 {
             color: var(--primary-color);
             margin-bottom: 20px;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 1.3rem;
         }
 
         .info-row {
@@ -110,26 +113,33 @@
         }
 
         .info-value {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: #222;
         }
 
         /* Список КВЕДів */
         .kved-list {
             list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
         }
 
         .kved-list li {
             position: relative;
             padding-left: 25px;
-            margin-bottom: 10px;
+            background: #f8f9fa;
+            padding: 15px 15px 15px 35px;
+            border-radius: 5px;
+            border-left: 3px solid var(--secondary-color);
         }
 
         .kved-list li::before {
             content: "⚡";
             position: absolute;
-            left: 0;
-            color: var(--secondary-color);
+            left: 10px;
+            top: 15px;
+            color: var(--primary-color);
         }
 
         /* Підвал */
@@ -180,15 +190,23 @@
                 <h2>Юридичні реквізити</h2>
                 <div class="info-row">
                     <span class="info-label">Повне найменування:</span>
-                    <span class="info-value">ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ «СЕС ВІДРОДЖЕННЯ»</span>
+                    <span class="info-value">ТОВ «СЕС ВІДРОДЖЕННЯ»</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label">Код ЄДРПОУ:</span>
                     <span class="info-value">45923291</span>
                 </div>
                 <div class="info-row">
+                    <span class="info-label">Форма власності:</span>
+                    <span class="info-value">Товариство з обмеженою відповідальністю</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Контакти</h2>
+                <div class="info-row">
                     <span class="info-label">Юридична та фактична адреса:</span>
-                    <span class="info-value">37400, Україна, Полтавська обл., Лубенський р-н, місто Гребінка, вул. Городищенська, будинок 88б</span>
+                    <span class="info-value">37400, Україна, Полтавська обл., Лубенський р-н, м. Гребінка, вул. Городищенська, буд. 88б</span>
                 </div>
                  <div class="info-row">
                     <span class="info-label">Контактний телефон:</span>
@@ -196,16 +214,16 @@
                 </div>
             </div>
 
-            <div class="card" style="grid-column: 1 / -1;">
-                <h2>Напрямки діяльності (КВЕД)</h2>
-                <ul class="kved-list">
-                    <li><strong>35.11</strong> — Виробництво електроенергії (основний)</li>
-                    <li><strong>35.14</strong> — Торгівля електроенергією</li>
-                    <li><strong>43.21</strong> — Електромонтажні роботи</li>
-                    <li><strong>71.12</strong> — Діяльність у сфері інжинірингу, геології та геодезії, надання послуг технічного консультування в цих сферах</li>
-                </ul>
-            </div>
+        </div>
 
+        <div class="card">
+            <h2>Напрямки діяльності (КВЕД)</h2>
+            <ul class="kved-list">
+                <li><strong>35.11</strong> — Виробництво електроенергії (основний)</li>
+                <li><strong>35.14</strong> — Торгівля електроенергією</li>
+                <li><strong>43.21</strong> — Електромонтажні роботи</li>
+                <li><strong>71.12</strong> — Діяльність у сфері інжинірингу, геології та геодезії</li>
+            </ul>
         </div>
     </div>
 
