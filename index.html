@@ -4,63 +4,214 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ТОВ «СЕС ВІДРОДЖЕННЯ» — Офіційний сайт</title>
+    <meta name="description" content="Офіційний сайт ТОВ «СЕС ВІДРОДЖЕННЯ». Виробництво електроенергії з відновлюваних джерел, експлуатація сонячної електростанції потужністю 121,9 кВт.">
     <style>
         :root {
-            --primary: #2e7d32; /* Зелений колір енергетики */
-            --dark: #1b5e20;
-            --light: #f1f8e9;
-            --text: #333;
+            --primary-color: #1e88e5; /* Синій (небо/технології) */
+            --secondary-color: #fdd835; /* Жовтий (сонце) */
+            --dark-bg: #121212;
+            --text-dark: #333333;
+            --text-light: #ffffff;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: var(--text); line-height: 1.6; }
-        header { background: var(--primary); color: white; padding: 4rem 1rem; text-align: center; }
-        .container { max-width: 900px; margin: auto; padding: 2rem; }
-        .card { background: var(--light); border-left: 5px solid var(--primary); padding: 1.5rem; margin-bottom: 2rem; border-radius: 4px; }
-        h1 { margin: 0; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 1px; }
-        h2 { color: var(--dark); border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #777; border-top: 1px solid #eee; }
-        .contact-item { margin-bottom: 10px; }
-        strong { color: var(--dark); }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #f4f6f9;
+        }
+
+        /* Геройський блок (Головний екран) */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1509391366360-1e97d5261688?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+        }
+
+        /* Контейнер для контенту */
+        .container {
+            max-width: 1200px;
+            margin: -40px auto 40px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Карточки */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .card h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-row {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #555;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .info-value {
+            font-size: 1.05rem;
+            color: #222;
+        }
+
+        /* Список КВЕДів */
+        .kved-list {
+            list-style: none;
+        }
+
+        .kved-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .kved-list li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+        /* Підвал */
+        footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* Адаптивність */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero p { font-size: 1rem; }
+            .container { margin-top: 20px; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>ТОВ «СЕС ВІДРОДЖЕННЯ»</h1>
-    <p>Генерація екологічно чистої енергії</p>
-</header>
+    <header class="hero">
+        <h1>ТОВ «СЕС ВІДРОДЖЕННЯ»</h1>
+        <p>Генерація екологічно чистої енергії. Надійна експлуатація об'єктів відновлюваної енергетики для енергонезалежності України.</p>
+    </header>
 
-<div class="container">
-    <section>
-        <h2>Про компанію</h2>
-        <p>Товариство з обмеженою відповідальністю «СЕС ВІДРОДЖЕННЯ» спеціалізується на експлуатації об'єктів відновлюваної енергетики. Наша мета — розвиток енергетичної незалежності України через впровадження сучасних технологій сонячної генерації.</p>
-    </section>
+    <div class="container">
+        <div class="grid">
+            
+            <div class="card">
+                <h2>Про об'єкт генерації</h2>
+                <div class="info-row">
+                    <span class="info-label">Основний об'єкт:</span>
+                    <span class="info-value">Дахова фотоелектрична сонячна електростанція «Відродження»</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Встановлена потужність:</span>
+                    <span class="info-value">121,9 кВт</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Керівник (Директор):</span>
+                    <span class="info-value">Гавриленко Ольга Павлівна</span>
+                </div>
+            </div>
 
-    <div class="grid">
-        <section class="card">
-            <h2>Реквізити</h2>
-            <div class="contact-item"><strong>Код ЄДРПОУ:</strong> [Ваш код]</div>
-            <div class="contact-item"><strong>Статус:</strong> Юридична особа</div>
-            <div class="contact-item"><strong>Діяльність:</strong> 35.11 Виробництво електроенергії</div>
-        </section>
+            <div class="card">
+                <h2>Юридичні реквізити</h2>
+                <div class="info-row">
+                    <span class="info-label">Повне найменування:</span>
+                    <span class="info-value">ТОВАРИСТВО З ОБМЕЖЕНОЮ ВІДПОВІДАЛЬНІСТЮ «СЕС ВІДРОДЖЕННЯ»</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Код ЄДРПОУ:</span>
+                    <span class="info-value">45923291</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Юридична та фактична адреса:</span>
+                    <span class="info-value">37400, Україна, Полтавська обл., Лубенський р-н, місто Гребінка, вул. Городищенська, будинок 88б</span>
+                </div>
+                 <div class="info-row">
+                    <span class="info-label">Контактний телефон:</span>
+                    <span class="info-value">+38 (050) 533-38-65</span>
+                </div>
+            </div>
 
-        <section class="card">
-            <h2>Контакти</h2>
-            <div class="contact-item"><strong>Адреса:</strong> [Юридична адреса]</div>
-            <div class="contact-item"><strong>Телефон:</strong> [Номер телефону]</div>
-            <div class="contact-item"><strong>E-mail:</strong> [Ваш Email]</div>
-        </section>
+            <div class="card" style="grid-column: 1 / -1;">
+                <h2>Напрямки діяльності (КВЕД)</h2>
+                <ul class="kved-list">
+                    <li><strong>35.11</strong> — Виробництво електроенергії (основний)</li>
+                    <li><strong>35.14</strong> — Торгівля електроенергією</li>
+                    <li><strong>43.21</strong> — Електромонтажні роботи</li>
+                    <li><strong>71.12</strong> — Діяльність у сфері інжинірингу, геології та геодезії, надання послуг технічного консультування в цих сферах</li>
+                </ul>
+            </div>
+
+        </div>
     </div>
 
-    <section>
-        <h2>Документація</h2>
-        <p>Відповідно до вимог чинного законодавства, ТОВ «СЕС ВІДРОДЖЕННЯ» забезпечує прозорість своєї діяльності. Копії ліцензій та статутних документів надаються за запитом контролюючих органів.</p>
-    </section>
-</div>
-
-<footer>
-    &copy; 2026 ТОВ «СЕС ВІДРОДЖЕННЯ». Всі права захищені.
-</footer>
+    <footer>
+        <p>&copy; 2026 ТОВ «СЕС ВІДРОДЖЕННЯ». Всі права захищені.</p>
+    </footer>
 
 </body>
 </html>
